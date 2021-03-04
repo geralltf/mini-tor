@@ -23,25 +23,76 @@ namespace detail {
   {
     constexpr static inline uint32_t hash(char const*const aString, const uint32_t val = default_offset_basis)
     {
-      return (aString[0] == '\0') ? val : hash(&aString[1], (val * prime) ^ uint32_t(aString[0]));
+		if (aString[0] == '\0')
+		{
+			return val;
+		}
+		else
+		{
+			return hash(&aString[1], (val * prime) ^ uint32_t(aString[0]));
+		}
+      //return (aString[0] == '\0') ? val : hash(&aString[1], (val * prime) ^ uint32_t(aString[0]));
     }
 
     constexpr static inline uint32_t hash(char const*const aString, const size_t aStrlen, const uint32_t val)
     {
-      return (aStrlen == 0) ? val : hash(aString + 1, aStrlen - 1, (val * prime) ^ uint32_t(aString[0]));
+		if (aStrlen == 0)
+		{
+			return val;
+		}
+		else
+		{
+			return hash(aString + 1, aStrlen - 1, (val * prime) ^ uint32_t(aString[0]));
+		}
+      //return (aStrlen == 0) ? val : hash(aString + 1, aStrlen - 1, (val * prime) ^ uint32_t(aString[0]));
     }
   };
 
   template <> struct fnv1a<uint32_t> : public fnv_internal<uint32_t>
   {
-    constexpr static inline uint32_t hash(char const*const aString, const uint32_t val = default_offset_basis)
+    static inline uint32_t hash(char const*const aString, const uint32_t val = default_offset_basis)
     {
-      return (aString[0] == '\0') ? val : hash(&aString[1], (val ^ uint32_t(aString[0])) * prime);
+        uint32_t h = val;
+        char c;
+        size_t i;
+        size_t length = strlen(aString);
+        for (i = 0; i < length; i++)
+        {
+            c = aString[i];
+
+            if (c == '\0')
+            {
+                return h;
+            }
+            else
+            {
+                h = (h ^ uint32_t(c)) * prime;
+            }
+        }
+        return h;
+
+		//if (aString[0] == '\0')
+		//{
+		//	return val;
+		//}
+		//else 
+		//{
+		//	return hash(&aString[1], (val ^ uint32_t(aString[0])) * prime);
+		//}
+      //return (aString[0] == '\0') ? val : hash(&aString[1], (val ^ uint32_t(aString[0])) * prime);
     }
 
     constexpr static inline uint32_t hash(char const*const aString, const size_t aStrlen, const uint32_t val)
     {
-      return (aStrlen == 0) ? val : hash(aString + 1, aStrlen - 1, (val ^ uint32_t(aString[0])) * prime);
+		if (aStrlen == 0)
+		{
+			return val;
+		}
+		else
+		{
+			return hash(aString + 1, aStrlen - 1, (val ^ uint32_t(aString[0])) * prime);
+		}
+      //return (aStrlen == 0) ? val : hash(aString + 1, aStrlen - 1, (val ^ uint32_t(aString[0])) * prime);
     }
   };
 
@@ -50,15 +101,15 @@ namespace detail {
 class string_hash
 {
   public:
-    constexpr string_hash(
+    string_hash(
       void
       ) = default;
 
-    constexpr string_hash(
+    string_hash(
       const string_hash& other
       ) = default;
 
-    constexpr string_hash(
+    string_hash(
       string_hash&& other
       ) = default;
 
@@ -70,7 +121,7 @@ class string_hash
       string_hash&& other
       ) = default;
 
-    constexpr string_hash(
+    string_hash(
       const char* value
       )
       : _hash(detail::fnv1a<uint32_t>::hash(value))

@@ -2,7 +2,11 @@
 
 namespace mini::tor {
 
-constexpr hidden_service_descriptor_parser::control_word_list hidden_service_descriptor_parser::control_words;
+hidden_service_descriptor_parser::control_word_list hidden_service_descriptor_parser::control_words = { {
+    "introduction-points",
+    "-----BEGIN MESSAGE-----",
+    "-----END MESSAGE-----",
+  } };
 
 void
 hidden_service_descriptor_parser::parse(

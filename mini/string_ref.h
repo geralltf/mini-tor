@@ -1,4 +1,5 @@
 #pragma once
+#include <sstream>
 #include <mini/string.h>
 #include <mini/byte_buffer_ref.h>
 

@@ -312,6 +312,9 @@
     <ClCompile Include="mini\win32\api_set\api_set_value_enumerator.cpp">
       <Filter>Source Files\mini\win32\api_set</Filter>
     </ClCompile>
+    <ClCompile Include="MiniTor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mini\flags.h">
@@ -679,6 +682,9 @@
     </ClInclude>
     <ClInclude Include="mini\win32\pe\common.h">
       <Filter>Header Files\mini\win32\pe</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniTor.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

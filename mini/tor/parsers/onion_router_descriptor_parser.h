@@ -33,13 +33,14 @@ struct onion_router_descriptor_parser
   };
 
   using control_word_list = stack_buffer<string_hash, 5>;
-  static constexpr control_word_list control_words = { {
-    "onion-key",
-    "signing-key",
-    "-----BEGIN RSA PUBLIC KEY-----",
-    "-----END RSA PUBLIC KEY-----",
-    "ntor-onion-key",
-    } };
+  //static constexpr control_word_list control_words = { {
+  //  "onion-key",
+  //  "signing-key",
+  //  "-----BEGIN RSA PUBLIC KEY-----",
+  //  "-----END RSA PUBLIC KEY-----",
+  //  "ntor-onion-key",
+  //  } };
+  static control_word_list control_words;
 
   void
   parse(

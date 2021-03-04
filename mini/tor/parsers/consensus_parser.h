@@ -35,9 +35,10 @@ struct consensus_parser
   };
 
   using preamble_control_word_list = stack_buffer<string_hash, 1>;
-  static constexpr preamble_control_word_list preamble_control_words = { {
-    "valid-until",
-  } };
+  //static constexpr preamble_control_word_list preamble_control_words = { {
+  //  "valid-until",
+  //} };
+  static preamble_control_word_list preamble_control_words;
 
   //
   // router status entry.
@@ -53,14 +54,15 @@ struct consensus_parser
   };
 
   using router_status_entry = stack_buffer<char, 7>;
-  static constexpr router_status_entry router_status_entry_chars = { {
-    'r',
-    'a',
-    's',
-    'v',
-    'w',
-    'p',
-  } };
+  //static constexpr router_status_entry router_status_entry_chars = { {
+  //  'r',
+  //  'a',
+  //  's',
+  //  'v',
+  //  'w',
+  //  'p',
+  //} };
+  static router_status_entry router_status_entry_chars;
 
   enum router_status_entry_r_type
   {
@@ -103,21 +105,23 @@ struct consensus_parser
   };
 
   using router_status_flags_type = stack_buffer<string_hash, 13>;
-  static constexpr router_status_flags_type router_status_flags = { {
-    "Authority",
-    "BadExit",
-    "Exit",
-    "Fast",
-    "Guard",
-    "HSDir",
-    "Named",
-    "NoEdConsensus",
-    "Stable",
-    "Running",
-    "Unnamed",
-    "Valid",
-    "V2Dir",
-  } };
+  //static constexpr router_status_flags_type router_status_flags = { {
+  //  "Authority",
+  //  "BadExit",
+  //  "Exit",
+  //  "Fast",
+  //  "Guard",
+  //  "HSDir",
+  //  "Named",
+  //  "NoEdConsensus",
+  //  "Stable",
+  //  "Running",
+  //  "Unnamed",
+  //  "Valid",
+  //  "V2Dir",
+  //} };
+
+  static router_status_flags_type router_status_flags;
 
   //
   // directory footer.
@@ -128,9 +132,11 @@ struct consensus_parser
   };
 
   using directory_footer_control_word_list = stack_buffer<string_hash, 1>;
-  static constexpr directory_footer_control_word_list directory_footer_control_words = { {
-    "directory-footer",
-  } };
+  //static constexpr directory_footer_control_word_list directory_footer_control_words = { {
+  //  "directory-footer",
+  //} };
+
+  static directory_footer_control_word_list directory_footer_control_words;
 
   //
   // implementation.

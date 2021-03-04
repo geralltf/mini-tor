@@ -29,12 +29,14 @@ struct introduction_point_parser
   };
 
   using control_word_list = stack_buffer<string_hash, 4>;
-  static constexpr control_word_list control_words = { {
-    "introduction-point",
-    "service-key",
-    "-----BEGIN RSA PUBLIC KEY-----",
-    "-----END RSA PUBLIC KEY-----",
-  } };
+  //static constexpr control_word_list control_words = { {
+  //  "introduction-point",
+  //  "service-key",
+  //  "-----BEGIN RSA PUBLIC KEY-----",
+  //  "-----END RSA PUBLIC KEY-----",
+  //} };
+
+  static control_word_list control_words;
 
   void
   parse(

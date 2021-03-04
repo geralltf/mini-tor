@@ -4,7 +4,13 @@
 
 namespace mini::tor {
 
-constexpr onion_router_descriptor_parser::control_word_list onion_router_descriptor_parser::control_words;
+onion_router_descriptor_parser::control_word_list onion_router_descriptor_parser::control_words = { {
+    "onion-key",
+    "signing-key",
+    "-----BEGIN RSA PUBLIC KEY-----",
+    "-----END RSA PUBLIC KEY-----",
+    "ntor-onion-key",
+    } };;
 
 void
 onion_router_descriptor_parser::parse(

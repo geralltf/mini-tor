@@ -16,17 +16,19 @@
 //   int tm_isdst; // daylight savings time flag
 // };
 
-extern "C"
-uint32_t __cdecl
-time(
-  uint32_t* _Time
-  );
+#define timegm _mkgmtime
 
-extern "C"
-uint32_t __cdecl
-_mkgmtime(
-  struct tm* timeptr
-  );
+//extern "C"
+//uint32_t __cdecl
+//time(
+//  uint32_t* _Time
+//  );
+
+//extern "C"
+//uint32_t __cdecl
+//_mkgmtime(
+//  struct tm* timeptr
+//  );
 
 namespace mini {
 

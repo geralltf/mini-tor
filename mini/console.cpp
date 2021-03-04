@@ -102,7 +102,7 @@ set_color(
   WORD color
   )
 {
-  SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+  //SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
 
 }

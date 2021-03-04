@@ -6,7 +6,12 @@
 
 namespace mini::tor {
 
-constexpr introduction_point_parser::control_word_list introduction_point_parser::control_words;
+introduction_point_parser::control_word_list introduction_point_parser::control_words = { {
+  "introduction-point",
+  "service-key",
+  "-----BEGIN RSA PUBLIC KEY-----",
+  "-----END RSA PUBLIC KEY-----",
+} };
 
 void
 introduction_point_parser::parse(
